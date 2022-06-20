@@ -1,0 +1,29 @@
+org: saatwik
+app: remind-me
+service: remind-me
+
+frameworkVersion: '3'
+
+provider:
+  name: aws
+  stage: dev
+  runtime: python3.8
+  timeout: 10
+  memorySize: 128
+  region: ap-south-1
+  versionFunctions: false
+  profile: seconduser
+  stackName: saatwik-remindme-app
+
+
+
+functions:
+  hello:
+    handler: handler.hello
+    events:
+      - httpApi:
+          path: /getTasks
+          method: get
+      - httpApi:
+          path: /create
+          method: post
