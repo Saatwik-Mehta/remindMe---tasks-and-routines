@@ -1,24 +1,15 @@
-from typing import Dict
-
 import boto3
 
 dynamo_db = boto3.resource("dynamodb")
 table = dynamo_db.Table("remind_me_table")
 
 
-def get_task(data: Dict):
+def get_task():
     """
-    > This function gets a task from the database
-
-    :param data: Dict
-    :type data: Dict
+    > This function get all the tasks from the database
     :return: The item is being returned.
     """
 
-    resp = table.get_item(
-        Key={
-            "id": data["id"],
-        }
-    )
-    item = resp["Item"]
-    return item
+    resp = table.scan()
+    items = resp["Items"]
+    return items
