@@ -20,10 +20,17 @@ provider:
 functions:
   hello:
     handler: handler.hello
+    description: This function will handle the functions that perform CRUD operations
     events:
       - httpApi:
-          path: /getTasks
-          method: get
+          path: /viewtasks
+          method: GET
       - httpApi:
-          path: /create
-          method: post
+          path: /createtasks
+          method: POST
+      - httpApi:
+          path: /deletetasks
+          method: DELETE
+      - httpApi:
+          path: /updatetasks
+          method: PUT
