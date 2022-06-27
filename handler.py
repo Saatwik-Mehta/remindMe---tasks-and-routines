@@ -10,11 +10,11 @@ def hello(event, context):
     # event:  {'resource': '/create', 'httpMethod': 'POST', 'body': '{This data is useless}'}
     if event.get("body"):
         body = json.loads(event["body"])
-    if event["httpMethod"] == "GET":
+    if event['requestContext']["http"]["method"] == "GET":
         return get_task()
-    if event["httpMethod"] == "POST":
+    if event['requestContext']["http"]["method"] == "POST":
         return create_task(body)
-    if event["httpMethod"] == "DELETE":
+    if event['requestContext']["http"]["method"] == "DELETE":
         return delete_task(body)
-    if event["httpMethod"] == "PUT":
+    if event['requestContext']["http"]["method"] == "PUT":
         return update_task(body)

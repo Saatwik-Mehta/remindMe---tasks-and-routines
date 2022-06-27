@@ -14,7 +14,19 @@ provider:
   versionFunctions: false
   profile: second_user
   stackName: saatwik-remindme-app
-
+add  environment:
+    DYNAMODB_CUSTOMER_TABLE: remind_me_table
+  iam:
+    role:
+      statements:
+        - Effect: 'Allow'
+          Action:
+            - 'dynamodb:PutItem'
+            - 'dynamodb:Get*'
+            - 'dynamodb:Scan*'
+            - 'dynamodb:UpdateItem'
+            - 'dynamodb:DeleteItem'
+          Resource: arn:aws:dynamodb:${aws:region}:${aws:accountId}:table/remind_me_table
 
 
 functions:
