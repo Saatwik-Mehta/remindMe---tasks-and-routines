@@ -8,7 +8,8 @@ from update_tasks import update_task
 
 def hello(event, context):
     # event:  {'resource': '/create', 'httpMethod': 'POST', 'body': '{This data is useless}'}
-    body = json.loads(event["body"])
+    if event.get("body"):
+        body = json.loads(event["body"])
     if event["httpMethod"] == "GET":
         return get_task()
     if event["httpMethod"] == "POST":
