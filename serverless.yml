@@ -12,7 +12,7 @@ provider:
   memorySize: 128
   region: ap-south-1
   versionFunctions: false
-  profile: seconduser
+  profile: second_user
   stackName: saatwik-remindme-app
 
 
