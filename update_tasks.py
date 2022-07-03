@@ -1,3 +1,12 @@
+"""
+Used to update the tasks in the db
+updated_data: {
+"id": int,
+"task":"Something updated goes here",
+"schedule": time,
+"created_at": time
+}
+"""
 from typing import Dict
 
 import boto3

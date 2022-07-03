@@ -1,0 +1,14 @@
+{"name": "remind-me-github-actions",
+  "description": "This will ber used to configure the serverless deploy using GitHub Actions",
+  "version": "0.0.1",
+  "dependencies": {
+
+  },
+  "scripts": {
+    "deploy": "sls deploy"
+  },
+  "devDependencies": {
+    "serverless": "^3.19.0",
+    "serverless-python-requirements": "^5.4.0"
+  }
+}

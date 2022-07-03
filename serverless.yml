@@ -8,13 +8,13 @@ provider:
   name: aws
   stage: dev
   runtime: python3.8
-  timeout: 10
+  timeout: 900
   memorySize: 128
   region: ap-south-1
   versionFunctions: false
   profile: second_user
   stackName: saatwik-remindme-app
-add  environment:
+  add  environment:
     DYNAMODB_CUSTOMER_TABLE: remind_me_table
   iam:
     role:
@@ -28,6 +28,16 @@ add  environment:
             - 'dynamodb:DeleteItem'
           Resource: arn:aws:dynamodb:${aws:region}:${aws:accountId}:table/remind_me_table
 
+custom:
+  pythonRequirements:
+    dockerizePip: true
+
+package:
+  individually: false
+  exclude:
+    - package.json
+    - package-log.json
+    - node_modules/**
 
 functions:
   hello:
@@ -46,3 +56,5 @@ functions:
       - httpApi:
           path: /updatetasks
           method: PUT
+plugins:
+  - serverless-python-requirements

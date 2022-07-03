@@ -1,3 +1,7 @@
+"""
+Use to delete the tasks from db
+{"id": int}
+"""
 from typing import Dict
 
 import boto3
