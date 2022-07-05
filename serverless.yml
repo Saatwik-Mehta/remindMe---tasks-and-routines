@@ -13,7 +13,7 @@ provider:
   region: ap-south-1
   versionFunctions: false
   stackName: saatwik-remindme-app
-  add  environment:
+  environment:
     DYNAMODB_CUSTOMER_TABLE: remind_me_table
   iam:
     role:
