@@ -12,7 +12,6 @@ provider:
   memorySize: 128
   region: ap-south-1
   versionFunctions: false
-  profile: second_user
   stackName: saatwik-remindme-app
   add  environment:
     DYNAMODB_CUSTOMER_TABLE: remind_me_table
