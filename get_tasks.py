@@ -1,3 +1,6 @@
+"""
+This module is used to Fetch the available tasks from the Db
+"""
 import boto3
 
 dynamo_db = boto3.resource("dynamodb")

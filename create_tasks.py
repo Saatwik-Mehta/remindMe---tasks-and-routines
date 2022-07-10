@@ -1,3 +1,12 @@
+"""
+Used to create new tasks
+data: {
+"id": int,
+"task":"Something goes here",
+"schedule": time,
+"created_at": time
+}
+"""
 from typing import Dict
 import boto3
 
