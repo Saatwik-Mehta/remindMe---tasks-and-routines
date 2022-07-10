@@ -4,7 +4,6 @@ ALL CRUD operations are mentioned here
 """
 
 import json
-
 from create_tasks import create_task
 from delete_tasks import delete_task
 from get_tasks import get_task
