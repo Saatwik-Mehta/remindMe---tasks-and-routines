@@ -32,7 +32,7 @@ custom:
     dockerizePip: true
 
 package:
-  individually: false
+  individually: true
   exclude:
     - package.json
     - package-log.json
