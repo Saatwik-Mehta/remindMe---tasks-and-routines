@@ -27,10 +27,6 @@ provider:
             - 'dynamodb:DeleteItem'
           Resource: arn:aws:dynamodb:${aws:region}:${aws:accountId}:table/remind_me_table
 
-custom:
-  pythonRequirements:
-    dockerizePip: true
-
 package:
   individually: true
   exclude:
