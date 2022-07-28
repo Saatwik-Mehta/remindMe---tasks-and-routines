@@ -11,6 +11,8 @@ from typing import Dict
 
 import boto3
 
+from common import send_email
+
 dynamo_db = boto3.resource("dynamodb")
 table = dynamo_db.Table("remind_me_table")
 
@@ -29,3 +31,12 @@ def update_task(data: Dict):
     )
 
     return {"statusCode": 200, "body": "Item updated successfully"}
+
+
+def send_mail_to_user():
+    """
+    This function simply sends an email to the task
+    updater confirming the task has been updated"""
+    text = "Your task has been updated successfully."
+    subject = "Confirmation of the task creation"
+    send_email(sub=subject, text=text)

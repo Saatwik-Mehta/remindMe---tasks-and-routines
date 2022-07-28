@@ -12,6 +12,7 @@ provider:
   memorySize: 128
   region: ap-south-1
   versionFunctions: false
+  profile: second_user
   stackName: saatwik-remindme-app
   environment:
     DYNAMODB_CUSTOMER_TABLE: remind_me_table
@@ -26,6 +27,15 @@ provider:
             - 'dynamodb:UpdateItem'
             - 'dynamodb:DeleteItem'
           Resource: arn:aws:dynamodb:${aws:region}:${aws:accountId}:table/remind_me_table
+
+        - Effect: Allow
+          Resource: "arn:aws:ses:ap-south-1:685751078596:identity/saatwikmehta@gmail.com"
+          Action:
+            - ses:SendEmail
+            - ses:SendRawEmail
+            - logs:CreateLogGroup
+            - logs:CreateLogStream
+            - logs:PutLogEvents
 
 package:
   individually: true

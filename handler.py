@@ -4,13 +4,19 @@ ALL CRUD operations are mentioned here
 """
 
 import json
+import logging
+
 from create_tasks import create_task
 from delete_tasks import delete_task
 from get_tasks import get_task
 from update_tasks import update_task
 
+LOGGER = logging.getLogger(__name__)
+LOGGER.setLevel(logging.INFO)
+
 
 def hello(event, context):
+    LOGGER.info("////////////////////event: %s", event)
     if event.get("body"):
         body = json.loads(event["body"])
     if event["requestContext"]["http"]["method"] == "GET":
